@@ -1,14 +1,14 @@
 class Position
-  attr_reader :x, :y, :d
+  attr_reader :x, :y, :direction
 
-  def initialize x, y, d
-    @x = x;
-    @y = y;
-    @d = d
+  def initialize x, y, direction
+    @x = x
+    @y = y
+    @direction = direction
   end
 
   def left
-    case @d
+    case @direction
       when 'NORTH'; faceDirection 'WEST'
       when 'WEST';  faceDirection 'SOUTH'
       when 'SOUTH'; faceDirection 'EAST'
@@ -17,7 +17,7 @@ class Position
   end
 
   def right
-    case @d
+    case @direction
       when 'NORTH'; faceDirection 'EAST'
       when 'WEST';  faceDirection 'NORTH'
       when 'SOUTH'; faceDirection 'WEST'
@@ -26,7 +26,7 @@ class Position
   end
 
   def move
-    case @d
+    case @direction
       when 'NORTH'; moveNorth
       when 'EAST';  moveEast
       when 'SOUTH'; moveSouth
@@ -35,14 +35,14 @@ class Position
   end
 
   def report
-    "#{@x},#{@y},#{@d}"
+    "#{@x},#{@y},#{@direction}"
   end
 
   private
 
   def faceDirection direction; Position.new @x, @y, direction; end
-  def moveNorth; Position.new @x,     @y + 1, @d; end
-  def moveSouth; Position.new @x,     @y - 1, @d; end
-  def moveEast;  Position.new @x + 1, @y,     @d; end
-  def moveWest;  Position.new @x - 1, @y,     @d; end
+  def moveNorth; Position.new @x,     @y + 1, @direction; end
+  def moveSouth; Position.new @x,     @y - 1, @direction; end
+  def moveEast;  Position.new @x + 1, @y,     @direction; end
+  def moveWest;  Position.new @x - 1, @y,     @direction; end
 end
