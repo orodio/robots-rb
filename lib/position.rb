@@ -9,28 +9,28 @@ class Position
 
   def left
     case @direction
-      when 'NORTH'; faceDirection 'WEST'
-      when 'WEST';  faceDirection 'SOUTH'
-      when 'SOUTH'; faceDirection 'EAST'
-      when 'EAST';  faceDirection 'NORTH'
+    when 'NORTH'; face_direction 'WEST'
+    when 'WEST';  face_direction 'SOUTH'
+    when 'SOUTH'; face_direction 'EAST'
+    when 'EAST';  face_direction 'NORTH'
     end
   end
 
   def right
     case @direction
-      when 'NORTH'; faceDirection 'EAST'
-      when 'WEST';  faceDirection 'NORTH'
-      when 'SOUTH'; faceDirection 'WEST'
-      when 'EAST';  faceDirection 'SOUTH'
+    when 'NORTH'; face_direction 'EAST'
+    when 'WEST';  face_direction 'NORTH'
+    when 'SOUTH'; face_direction 'WEST'
+    when 'EAST';  face_direction 'SOUTH'
     end
   end
 
   def move
     case @direction
-      when 'NORTH'; moveNorth
-      when 'EAST';  moveEast
-      when 'SOUTH'; moveSouth
-      when 'WEST';  moveWest
+    when 'NORTH'; move_north
+    when 'EAST';  move_east
+    when 'SOUTH'; move_south
+    when 'WEST';  move_west
     end
   end
 
@@ -40,9 +40,9 @@ class Position
 
   private
 
-  def faceDirection direction; Position.new @x, @y, direction; end
-  def moveNorth; Position.new @x,     @y + 1, @direction; end
-  def moveSouth; Position.new @x,     @y - 1, @direction; end
-  def moveEast;  Position.new @x + 1, @y,     @direction; end
-  def moveWest;  Position.new @x - 1, @y,     @direction; end
+  def face_direction direction; Position.new @x, @y, direction; end
+  def move_north; Position.new @x,     @y + 1, @direction; end
+  def move_south; Position.new @x,     @y - 1, @direction; end
+  def move_east;  Position.new @x + 1, @y,     @direction; end
+  def move_west;  Position.new @x - 1, @y,     @direction; end
 end

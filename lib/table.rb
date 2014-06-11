@@ -1,27 +1,27 @@
 class Table
-  attr_reader :xMin, :xMax, :yMin, :yMax
+  attr_reader :x_min, :x_max, :y_min, :y_max
 
   def initialize x = 5, y = 5
-    @xMin = @yMin = 0
-    @xMax = x
-    @yMax = y
+    @x_min = @y_min = 0
+    @x_max = x
+    @y_max = y
   end
 
-  def isValid? x, y
-    isValidX?(x) && isValidY?(y)
+  def is_valid? x, y
+    is_valid_x?(x) && is_valid_y?(y)
   end
 
   private
 
-  def isValidX? x
-    isInRange? x, @xMin, @xMax
+  def is_valid_x? x
+    is_in_range? x, @x_min, @x_max
   end
 
-  def isValidY? y
-    isInRange? y, @yMin, @yMax
+  def is_valid_y? y
+    is_in_range? y, @y_min, @y_max
   end
 
-  def isInRange? v, vMin, vMax
-    v >= vMin && v < vMax
+  def is_in_range? v, v_min, v_max
+    v >= v_min && v < v_max
   end
 end

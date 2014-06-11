@@ -6,20 +6,20 @@ class Robot
   end
 
   def place x, y, d
-    newPosition = Position.new x, y, d
-    moveTo newPosition
+    new_position = Position.new x, y, d
+    move_to new_position
   end
 
   def left
-    moveTo @position.left if @position
+    move_to @position.left if @position
   end
 
   def right
-    moveTo @position.right if @position
+    move_to @position.right if @position
   end
 
   def move
-    moveTo @position.move if @position
+    move_to @position.move if @position
   end
 
   def report
@@ -28,12 +28,12 @@ class Robot
 
   private
 
-  def moveTo position
+  def move_to position
     return unless @table
-    @position = position if isValidPosition? position
+    @position = position if is_valid_position? position
   end
 
-  def isValidPosition? position
-    @table.isValid? position.x, position.y
+  def is_valid_position? position
+    @table.is_valid? position.x, position.y
   end
 end
