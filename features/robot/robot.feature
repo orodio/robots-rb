@@ -64,3 +64,14 @@ Feature: Robot
       | EAST  | 4 | 4 |
       | SOUTH | 0 | 0 |
       | WEST  | 0 | 0 |
+
+  Scenario: Robot can take a command
+    Given a Robot is placed at 0,0,NORTH
+    When given the command "MOVE"
+    Then expect a Robot report of 0,1,NORTH
+    When given the command "RIGHT"
+    Then expect a Robot report of 0,1,EAST
+    When given the command "LEFT"
+    Then expect a Robot report of 0,1,NORTH
+    When given the command "PLACE 1,1,EAST"
+    Then expect a Robot report of 1,1,EAST

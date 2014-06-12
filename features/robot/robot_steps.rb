@@ -17,8 +17,12 @@ When(/^Robot moves$/) do
   @robot.move
 end
 
+When(/^given the command "(.*?)"$/) do |command|
+  @robot.command(command)
+end
+
 Then(/^expect a Robot report of (-?\d+),(-?\d+),(.+)$/) do |x, y, d|
-  expect(@robot.report).to eq("#{x},#{y},#{d}")
+  expect(@robot.command("REPORT")).to eq("#{x},#{y},#{d}")
 end
 
 Then(/^expect a Robot report of nil$/) do

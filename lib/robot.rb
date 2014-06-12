@@ -26,6 +26,21 @@ class Robot
     @position.report if @position
   end
 
+  def command command
+    before_space = command.split(' ')[0]
+    after_space = command.split(' ')[1]
+
+    case before_space
+    when "PLACE"
+      pos = after_space.split(',')
+      place pos[0].to_i, pos[1].to_i, pos[2]
+    when "MOVE";   move
+    when "RIGHT";  right
+    when "LEFT";   left
+    when "REPORT"; report
+    end
+  end
+
   private
 
   def move_to position
