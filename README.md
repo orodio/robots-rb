@@ -1,9 +1,9 @@
 ## Beep Boop
 
 ```sh
-$ bundle              # install dependencies (tests)
-$ cucumber            # run tests
-$ cucuber -f progress # ...F.... syntax for tests
+$ bundle                # install dependencies (tests)
+$ cucumber              # run tests
+$ cucumber -f progress  # ...F.... syntax for tests
 ```
 
 ## Toy Robot Simulator
