@@ -2,7 +2,7 @@ require 'robot'
 
 Given(/^a Robot is placed at (-?\d+),(-?\d+),(.+)$/) do |x, y, d|
   @robot = Robot.new
-  @robot.place x.to_i, y.to_i, d
+  @robot.place x, y, d
 end
 
 When(/^Robot turns left$/) do

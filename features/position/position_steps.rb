@@ -1,7 +1,7 @@
 require 'position'
 
 Given(/^an initial position of (\d+),(\d+),(.+)$/) do |x,y,d|
-  @position = Position.new(x.to_i, y.to_i, d)
+  @position = Position.new(x, y, d)
 end
 
 When(/^position turns left$/) do

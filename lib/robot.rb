@@ -6,6 +6,7 @@ class Robot
   end
 
   def place x, y, d
+    return unless x && y && d
     new_position = Position.new x, y, d
     move_to new_position
   end
@@ -27,13 +28,11 @@ class Robot
   end
 
   def command command
-    before_space = command.split(' ')[0]
-    after_space = command.split(' ')[1]
+    return unless command
+    command = command.split(' ')
 
-    case before_space
-    when "PLACE"
-      pos = after_space.split(',')
-      place pos[0].to_i, pos[1].to_i, pos[2]
+    case command[0]
+    when "PLACE";  place( *command[1].split(',') )
     when "MOVE";   move
     when "RIGHT";  right
     when "LEFT";   left
