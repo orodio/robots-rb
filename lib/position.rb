@@ -1,5 +1,5 @@
 class Position
-  attr_reader :x, :y, :direction
+  attr_accessor :x, :y, :direction
 
   def initialize x, y, direction
     @x = x.to_i
@@ -35,6 +35,10 @@ class Position
   end
 
   def report
+    puts current_position
+  end
+
+  def current_position
     "#{@x},#{@y},#{@direction}"
   end
 

@@ -21,10 +21,11 @@ When(/^given the command "(.*?)"$/) do |command|
   @robot.command(command)
 end
 
-Then(/^expect a Robot report of (-?\d+),(-?\d+),(.+)$/) do |x, y, d|
-  expect(@robot.command("REPORT")).to eq("#{x},#{y},#{d}")
+Then(/^expect a robot current position of "(.*?)"$/) do |pos|
+  expect(@robot.current_position).to eq(pos)
 end
 
-Then(/^expect a Robot report of nil$/) do
-  expect(@robot.report).to eq(nil)
+Then(/^expect a robot current position of nil$/) do
+  expect(@robot.current_position).to eq(nil)
 end
+

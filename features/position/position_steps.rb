@@ -16,7 +16,6 @@ When(/^position moves$/) do
   @position = @position.move
 end
 
-Then(/^expect a report of (\d+),(\d+),(.+)$/) do |x,y,d|
-  expect(@position.report).to eq("#{x},#{y},#{d}")
+Then(/^expect a current position of "(.*?)"$/) do |pos|
+  expect(@position.current_position).to eq(pos)
 end
-

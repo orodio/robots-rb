@@ -1,5 +1,8 @@
+require_relative 'table'
+require_relative 'position'
+
 class Robot
-  attr_reader :position, :table
+  attr_accessor :position, :table
 
   def initialize x = 5, y = 5
     @table = Table.new x, y
@@ -24,20 +27,16 @@ class Robot
   end
 
   def report
-    @position.report if @position
+    puts current_position if @position
+  end
+
+  def current_position
+    @position.current_position if @position
   end
 
   def command command
-    return unless command
-    command = command.split(' ')
-
-    case command[0]
-    when "PLACE";  place( *command[1].split(',') )
-    when "MOVE";   move
-    when "RIGHT";  right
-    when "LEFT";   left
-    when "REPORT"; report
-    end
+    command, arguments = command.downcase.split(' ')
+    send command, *arguments.to_s.split(',') if respond_to? command
   end
 
   private
