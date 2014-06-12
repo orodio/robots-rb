@@ -7,7 +7,7 @@ file = File.open 'commands.txt', 'r'
 robot = Robot.new
 
 file.each do |command|
-  robot = Robot.new if command === '---'
+  robot = Robot.new if command === '---' # not happy with this bit
   robot.command command
 end
 
